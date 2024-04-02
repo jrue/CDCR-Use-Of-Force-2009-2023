@@ -8,6 +8,11 @@ pandas = "*"
 numpy = "*"
 pdfplumber = "*"
 jupyter = "*"
+typing = "*"
+pyarrow = "*"
+tqdm = "*"
+matplotlib = "*"
+seaborn = "*"
 
 [dev-packages]
 
