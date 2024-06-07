@@ -6,14 +6,14 @@ This repository is a project by Jeremy Rue and Amanda Glazer working with KQED r
 
 Specifically, we are comparing Use of Force rates (adjusted by population) of high security prisons in California from 2009 to 2023. 
 
-CDCR does not publish historical data, so we drew from multiple sources. Some were obtains from COMPSTAT reports, others directly from public records requests. 
+CDCR does not publish historical data on their website, so we drew from many public records requests. 
 
 Special thanks to [Jeremy Singer-Vine](https://www.jsvine.com/) of the Data Liberation Project. Without his amazing [PDFPlumber](https://github.com/jsvine/pdfplumber) tool and his amazing session at NICAR 2024, this would not be possible.
 
 
 ## [scrape-pdf-2009-2019.ipynb](scrape-pdf-2009-2019.ipynb)
 
-This notebooks scrapes COMPSTAT PDFs from CDCR and saves the output into the finished-csvs folder. Because of the extensive length of each PDF, running the main part of this notebook takes approximately 20-30 minutes. A progress bar is provided to monitor the process. I also included a multithreading mechanism as an experiment, but did not get around to completing it, but I left it in the comments for any future impatient coder who may try to duplicate this work. 
+This notebooks scrapes COMPSTAT PDFs from CDCR and saves the output into the finished-csvs folder. Because of the extensive length of each PDF, running the main part of this notebook takes approximately 20-30 minutes. A progress bar is provided to monitor the process. 
 
 Note: because this PDF is structured with some rows using colored text signifying as headers for rows below, there are many repeating rows throughout this data. Anyone interested in a specific metric should analyze the order of the rows and verify by looking at the original PDF file.
 
@@ -33,7 +33,7 @@ The .csv export can be accessed here: [finished-csvs/finished-2020-2023-populati
 
 ## [scrape-pdf-2020-2023-incidents.ipynb](scrape-pdf-2020-2023-incidents.ipynb)
 
-For some reason CDCR started omitting Use of Force (UOF) metrics starting in 2020. In order to compare UOF with population, we pulled in from a separate incident report. These incident reports have overlapping columns resulting in some duplicated rows in the data. Any use of this data will require dropping duplicated rows. 
+For some reason CDCR started omitting Use of Force (UOF) metrics starting in 2020. In order to compare UOF with population, we pulled in from a separate incident report. These incident reports have overlapping columns resulting in some duplicated rows in the data. In 2020, UOF metrics for some prisions was listed on the above population document but with zeros, while on this incident report document, they contained non-zero values that we confirmed were true. Some additional data cleaning may be required for UOF analysis.
 
 ![Image showing sample PDF scraper grid](images/2020-2023-incidents.png)
 
